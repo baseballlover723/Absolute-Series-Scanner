@@ -644,8 +644,12 @@ def Scan(path, files, media, dirs, language=None, root=None,
 
     #### Folders, Forced ids, grouping folders ###
     folder_show = reverse_path[0] if reverse_path else ""
+    # remove resolution ([####p]) and codex {.*}
     folder_show = re.sub("\[(\d+p)\]", "", folder_show)
     folder_show = re.sub("\{.*\}", "", folder_show)
+
+    # remove (In Progress)
+    folder_show = re.sub("\(In Progress\)", "", folder_show)
 
     misc_words, misc_count = [], {}
     tvdb_mapping, unknown_series_length, tvdb_mode_search = {}, False, re.search(TVDB_MODE_IDS, folder_show,
