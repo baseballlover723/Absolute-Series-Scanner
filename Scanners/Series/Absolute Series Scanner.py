@@ -645,7 +645,7 @@ def Scan(path, files, media, dirs, language=None, root=None,
     #### Folders, Forced ids, grouping folders ###
     folder_show = reverse_path[0] if reverse_path else ""
     # remove resolution ([####p]) and codex {.*}
-    folder_show = re.sub("\[(\d+p)\]", "", folder_show)
+    folder_show = re.sub("\[(\d+p(,\s?)?)+\]", "", folder_show)
     folder_show = re.sub("\{.*\}", "", folder_show)
 
     # remove (In Progress)
